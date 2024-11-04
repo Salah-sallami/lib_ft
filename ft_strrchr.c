@@ -6,12 +6,12 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:39:25 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/02 11:39:26 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:20:54 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
+#include <stddef.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -22,10 +22,10 @@ char	*ft_strrchr(const char *s, int c)
 	vld = 0;
 	p = NULL;
 	p = (char *)s;
-	i = ft_strlen(p) - 1;
-	while (p[i])
+	i = ft_strlen(p);
+	while (i >= 0)
 	{
-		if (p[i] == c)
+		if (p[i] == (char)c)
 		{
 			vld = 1;
 			break ;

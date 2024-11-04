@@ -6,11 +6,11 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:38:50 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/03 13:43:38 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:59:29 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -22,7 +22,7 @@ char	*ft_strchr(const char *s, int c)
 	p = (char *)s;
 	while (*p)
 	{
-		if (*p == c)
+		if (*p == (char)c)
 		{
 			vld = 1;
 			break ;
@@ -30,6 +30,10 @@ char	*ft_strchr(const char *s, int c)
 		p++;
 	}
 	if (vld == 1)
+	{
+		return (p);
+	}
+	if (*p == (char)c)
 		return (p);
 	else
 		return (NULL);

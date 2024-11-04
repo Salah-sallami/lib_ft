@@ -6,7 +6,7 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:37:43 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/02 11:37:44 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/04 20:11:42 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	len_number(int n)
 	return (len);
 }
 
-char	*push_allocation(int len, int temp, int muns)
+char	*push_allocation(int len, int temp, int minus)
 {
 	char	*p;
 	char	c;
@@ -44,7 +44,7 @@ char	*push_allocation(int len, int temp, int muns)
 		c = t + '0';
 		len--;
 		p[len] = c;
-		if (muns == -1)
+		if (minus == -1)
 			p[0] = '-';
 	}
 	return (p);
@@ -54,22 +54,22 @@ char	*ft_itoa(int n)
 {
 	int	len;
 	int	temp;
-	int	muns;
+	int	minus;
 
 	len = 0;
-	muns = 1;
+	minus = 1;
 	if (n < 0)
 	{
 		n *= -1;
-		muns = -1;
+		minus = -1;
 	}
 	temp = n;
 	len = len_number(n);
-	if (muns == 1)
+	if (minus == 1)
 		len += 0;
 	else
 		len += 1;
-	return (push_allocation(len, temp, muns));
+	return (push_allocation(len, temp, minus));
 }
 // char *p = malloc(sizeof(char) * (len + 1));
 // if (!p)
@@ -85,6 +85,6 @@ char	*ft_itoa(int n)
 // 	c = t + '0';
 // 	len--;
 // 	p[len] = c;
-// 	if (muns == -1)
+// 	if (minus == -1)
 // 		p[0] = '-';
 // }

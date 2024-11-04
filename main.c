@@ -3,6 +3,8 @@
 
 int main()
 {
-    char dest[15];
-    printf("==%s==\n", ft_memmove(dest, "1212", 4));
+    char dest1[] = "SALAH";
+    char dest2[] = "SALAH";
+
+    printf("==%s==\n", ft_substr("", 1, 1));
 }

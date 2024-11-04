@@ -6,7 +6,7 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:37:59 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/03 11:51:09 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/03 21:01:56 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,19 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	p1 = (char *)dst;
 	p2 = (char *)src;
 	i = 0;
-	while (i < len)
+	if (p1 > p2)
 	{
-		p1[i] = p2[i];
-		i++;
+		while (len > 0)
+		{
+			len--;
+			p1[len] = p2[len];
+		}
 	}
-	return (p1);
+	else
+		while (i < len)
+		{
+			p1[i] = p2[i];
+			i++;
+		}
+	return (dst);
 }
