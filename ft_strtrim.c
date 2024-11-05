@@ -6,12 +6,12 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:39:29 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/02 11:39:30 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:19:29 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
 int	first_c(char const *s1, char const *set)
 {
@@ -68,11 +68,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	int		k;
 
+	if (!s1)
+		return (NULL);
+	if (s1[0] == '\0')
+		return (ft_strdup(""));
 	i = first_c(s1, set);
 	k = last_c(s1, set);
-	p = malloc((k - i) * sizeof(char) + 1);
-	if (p == NULL)
-		return (NULL);
 	p = ft_substr(s1, i, (k - i));
 	return (p);
 }

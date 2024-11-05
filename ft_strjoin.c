@@ -6,7 +6,7 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:38:56 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/02 11:38:57 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/05 12:30:17 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	sumlen = ft_strlen(s1) + ft_strlen(s2);
-	if (!*s1 || !*s2)
-		return (NULL);
 	p = (char *)malloc(sizeof(char) + sumlen + 1);
 	if (p == NULL)
 		return (NULL);

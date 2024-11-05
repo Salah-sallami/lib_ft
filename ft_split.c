@@ -6,7 +6,7 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:27:21 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/02 11:38:29 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:38:47 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	**ft_split(char const *s, char c)
 	arrays = malloc(sizeof(char *) * (len_c + 1));
 	arrays = allocation(s, arrays, c);
 	arrays = push_arrays(s, arrays, c);
-	printf("%c ///\n", arrays[2][0]);
+	// printf("%c ///\n", arrays[2][0]);
 	while (i <= len_c)
 	{
 		free(arrays[i]);
@@ -107,39 +107,3 @@ char	**ft_split(char const *s, char c)
 	free(arrays);
 	return (arrays);
 }
-
-///////////////
-// i = 0;
-// int l = 0;
-// while (i <= len_c)
-// {
-
-//     while (s[j])
-//     {
-//         l++;
-//         j++;
-//         if (s[j] == c || s[j] == '\0')
-//             break ;
-//     }
-//     arrays[i] = malloc(sizeof(char) * (l));
-//     arrays[i][l] = '\0';
-//     l = -1;
-//     i++;
-// }
-////////////
-
-// i = 0;
-// j = 0;
-// int k = 0;
-// while (i <= len_c)
-// {
-//     j = 0;
-//     while (s[k] != c && s[j] != '\0')
-//     {
-//         arrays[i][j] = s[k];
-//         k++;
-//         j++;
-//     }
-//     k++;
-//     i++;
-// }
