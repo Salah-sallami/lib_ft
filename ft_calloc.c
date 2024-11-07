@@ -6,23 +6,19 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:37:06 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/03 11:58:59 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:28:06 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*p;
-	size_t	i;
+	void	*ptr;
 
-	p = malloc(count * size);
-	i = 0;
-	while (i < count)
-	{
-		p[i] = 0;
-		i++;
-	}
-	return (p);
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (ptr);
+	ft_bzero(ptr, size * count);
+	return (ptr);
 }

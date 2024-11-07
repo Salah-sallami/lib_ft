@@ -6,7 +6,7 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:37:50 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/04 19:38:47 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:28:21 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	unsigned char	*chr1;
 	unsigned char	*chr2;
 
-	chr1 = (unsigned char*)s1;
-	chr2 = (unsigned char*)s2;
+	chr1 = (unsigned char *)s1;
+	chr2 = (unsigned char *)s2;
 	while (n--)
 	{
 		if (*chr1 != *chr2)

@@ -6,18 +6,18 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:37:43 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/04 20:11:42 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/05 19:10:46 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int	len_number(int n)
 {
 	int	len;
 
 	len = 1;
-	while (n > 10)
+	while (n > 9)
 	{
 		n = n / 10;
 		len++;
@@ -58,6 +58,8 @@ char	*ft_itoa(int n)
 
 	len = 0;
 	minus = 1;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
 		n *= -1;
@@ -71,20 +73,3 @@ char	*ft_itoa(int n)
 		len += 1;
 	return (push_allocation(len, temp, minus));
 }
-// char *p = malloc(sizeof(char) * (len + 1));
-// if (!p)
-// 	return NULL;
-// int i = 0;
-// char c;
-// int t;
-// p[len] = '\0';
-// while (i < len)
-// {
-// 	t = temp % 10;
-// 	temp = temp / 10;
-// 	c = t + '0';
-// 	len--;
-// 	p[len] = c;
-// 	if (minus == -1)
-// 		p[0] = '-';
-// }
