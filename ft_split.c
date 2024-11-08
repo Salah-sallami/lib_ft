@@ -6,110 +6,69 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:27:21 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/05 18:55:32 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/08 21:33:23 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-int	ft_len_c(char const *s, char c)
+static size_t	counts(const char *s, char c)
 {
-	int	len_c;
-	int	i;
+	size_t	i;
+	size_t	count;
 
-	len_c = 0;
 	i = 0;
+	count = 0;
 	while (s[i])
 	{
-		if (s[0] != c && s[i] == c && s[i - 1] != c)
-			len_c++;
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
+			count++;
 		i++;
 	}
-	return (len_c);
+	return (count);
 }
 
-char	**push_arrays(char const *s, char **arrays, char c)
+static char	**shorten(char **p, size_t x)
 {
-	int	len_c;
-	int	i;
-	int	j;
-	int	k;
+	while (x > 0)
+		free(p[--x]);
+	free(p);
+	return (NULL);
+}
 
-	len_c = ft_len_c(s, c);
+static char	**shoten2(char **p, const char *s, char c)
+{
+	size_t	i;
+	size_t	start;
+	size_t	x;
+
 	i = 0;
-	k = 0;
-	while (i <= len_c)
+	x = 0;
+	while (s[i] && x < counts(s, c))
 	{
-		j = 0;
-		while (s[k] == c)
-			k++;
-		while (s[k] != c && s[j] != '\0')
-		{
-			arrays[i][j] = s[k];
-			k++;
-			j++;
-		}
-		// k++;
-		i++;
+		while (s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		p[x++] = ft_substr(s, start, i - start);
+		if (!p[x - 1])
+			return (shorten(p, x));
 	}
-	return (arrays);
+	p[x] = NULL;
+	return (p);
 }
 
-char	**allocation(char const *s, char **arrays, char c)
+char	**ft_split(const char *s, char c)
 {
-	int	len_c;
-	int	i;
-	int	l;
-	int	j;
+	size_t	count;
+	char	**p;
 
-	len_c = ft_len_c(s, c);
-	i = 0;
-	l = 0;
-	j = 0;
-	while (i <= len_c)
-	{
-		while (s[j])
-		{
-			l++;
-			j++;
-			if (s[j] == c || s[j] == '\0')
-				break ;
-		}
-		arrays[i] = malloc(sizeof(char) * (l));
-		arrays[i][l] = '\0';
-		l = -1;
-		i++;
-	}
-	return (arrays);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		len_c;
-	int		i;
-	char	**arrays;
-
-	len_c = ft_len_c(s, c);
-	if (len_c == 0)
+	if (!s)
 		return (NULL);
-	arrays = malloc(sizeof(char *) * (len_c + 2));
-		if (!arrays)
-			return (NULL);
-	arrays = allocation(s, arrays, c);
-	arrays = push_arrays(s, arrays, c);
-	i=0;
-	while (i <= len_c)
-	{
-		printf("%s///\n", arrays[i]);
-		i++;
-	}
-	i = 0;
-	while (i <= len_c)
-	{
-		free(arrays[i]);
-		i++;
-	}
-	free(arrays);
-	return (arrays);
+	count = counts(s, c);
+	p = (char **)malloc(sizeof(char *) * (count + 1));
+	if (!p)
+		return (NULL);
+	return (shoten2(p, s, c));
 }

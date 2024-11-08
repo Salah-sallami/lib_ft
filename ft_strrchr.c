@@ -6,7 +6,7 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:39:25 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/04 17:20:54 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/07 13:34:15 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,8 @@ char	*ft_strrchr(const char *s, int c)
 	while (i >= 0)
 	{
 		if (p[i] == (char)c)
-		{
-			vld = 1;
-			break ;
-		}
+			return (p + i);
 		i--;
 	}
-	if (vld == 1)
-		return (p + i);
-	else
-		return (NULL);
+	return (NULL);
 }

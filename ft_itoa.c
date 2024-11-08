@@ -6,7 +6,7 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:37:43 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/05 19:10:46 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:20:02 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,7 @@ char	*ft_itoa(int n)
 	}
 	temp = n;
 	len = len_number(n);
-	if (minus == 1)
-		len += 0;
-	else
+	if (minus == -1)
 		len += 1;
 	return (push_allocation(len, temp, minus));
 }

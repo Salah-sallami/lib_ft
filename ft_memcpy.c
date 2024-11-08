@@ -6,7 +6,7 @@
 /*   By: ssallami <ssallami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:37:56 by ssallami          #+#    #+#             */
-/*   Updated: 2024/11/03 21:25:07 by ssallami         ###   ########.fr       */
+/*   Updated: 2024/11/07 13:31:47 by ssallami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*ft_memcpy(void *to, const void *from, size_t numBytes)
 	dst = (char *)to;
 	src = (char *)from;
 	i = 0;
-	if (!dst && !src)
-		return (0);
+	if (dst == src)
+		return (dst);
 	while (i < numBytes)
 	{
 		dst[i] = src[i];

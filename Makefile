@@ -20,8 +20,8 @@ CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}: ${OBJS}
 	${LIBC} ${NAME} ${OBJS}
